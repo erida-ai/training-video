@@ -1,0 +1,22 @@
+{
+  "name": "Неутрална",
+  "description": "Без лого и без фирмени цветове — за всичко, което няма своя тема.",
+  "colors": {
+    "dark": "#1b2a41",
+    "primary": "#2d5be3",
+    "accent": "#0e9f8e",
+    "background": "#f5f7fa",
+    "surface": "#ffffff",
+    "ink": "#1f2937",
+    "muted": "#6b7280"
+  },
+  "fonts": {
+    "heading": {"family": "Inter", "file": "fonts/Inter.ttf", "weight": 700, "license": "SIL OFL 1.1"},
+    "body": {"family": "Inter", "file": "fonts/Inter.ttf", "weight": 400, "license": "SIL OFL 1.1"}
+  },
+  "logo": {"on_light": null, "on_dark": null},
+  "title_image": null,
+  "footer": "",
+  "part_label": {"bg": "ЧАСТ", "en": "PART"},
+  "tone": "Професионален, корпоративен, неутрален."
+}

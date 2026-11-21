@@ -1,0 +1,11 @@
+{
+  "name": "Bulgarian",
+  "native_name": "български",
+  "locale": "bg-BG",
+  "voice": "Charon",
+  "pace": 0.073,
+  "fillers": "ъ, ъъ, ъм, ам, ами, ммм, ехм, ох",
+  "not_differences": "digits vs words, colloquial vs full number forms (дванайсет = дванадесет, двайсет = двадесет, трийсет = тридесет), Latin names read in Bulgarian (Salesforce = Сейлсфорс)",
+  "say_hints": "Write abbreviations and foreign names the way they are spoken: „QR“ → „кю ар“, „PDF“ → „пе де еф“, „Microsoft Teams“ → „Майкрософт Тиймс“, „IT“ → „И Тэ“, „CRM“ → „Си Ар Ем“. Numbers in words: „310 €“ → „триста и десет евро“.",
+  "greeting": "Здравейте, колеги."
+}

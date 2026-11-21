@@ -1,0 +1,38 @@
+{
+  "name": "Пример",
+  "description": "Шаблон: копирайте папката и попълнете.",
+  "colors": {
+    "dark": "#1b2a41",
+    "primary": "#2d5be3",
+    "accent": "#0e9f8e",
+    "background": "#f5f7fa",
+    "surface": "#ffffff",
+    "ink": "#1f2937",
+    "muted": "#6b7280"
+  },
+  "fonts": {
+    "heading": {
+      "family": "<Име на шрифта>",
+      "file": "fonts/<файл>.ttf",
+      "weight": 700,
+      "license": "<лиценз>"
+    },
+    "body": {
+      "family": "<Име на шрифта>",
+      "file": "fonts/<файл>.ttf",
+      "weight": 400,
+      "license": "<лиценз>"
+    }
+  },
+  "logo": {
+    "on_light": "logo/on-light.svg",
+    "on_dark": "logo/on-dark.svg"
+  },
+  "title_image": "images/title.jpg",
+  "footer": "<Фирма · Обучение за екипа>",
+  "part_label": {
+    "bg": "ЧАСТ",
+    "en": "PART"
+  },
+  "tone": "<Как говори марката — по избор>"
+}

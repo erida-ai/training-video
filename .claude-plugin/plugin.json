@@ -1,0 +1,9 @@
+{
+  "name": "training-video",
+  "displayName": "Обучително видео",
+  "version": "0.3.0",
+  "description": "Обучително видео с глас по зададени материали (документи, Drive, линкове) или по кода на продукт за избрана роля: сценарий, слайдове или запис на екраните на ролята, проверен глас на избран език, субтитри.",
+  "author": { "name": "Erida" },
+  "repository": "https://github.com/erida-ai/training-video",
+  "keywords": ["training", "video", "voice-over", "обучение", "видео"]
+}

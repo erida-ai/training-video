@@ -1,0 +1,164 @@
+/* Slide components for 1920×1080. Colours and fonts come only from the theme variables (--tv-*), set by
+   render.cjs from themes/<name>/theme.json. The catalogue of components with examples: reference/slides.md. */
+:root {
+  --tv-good: #0b7a4b; --tv-good-bg: #e8f8ef; --tv-bad: #b03a2e;
+  --tv-pale: color-mix(in srgb, var(--tv-primary) 9%, var(--tv-background));
+  --tv-shadow: 0 10px 34px color-mix(in srgb, var(--tv-dark) 10%, transparent);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--tv-dark);
+  font-family: var(--tv-font-body); color: var(--tv-ink); }
+.slide { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+[data-b] { opacity: 0; }
+h1, h2, h3, .kick, .num, .big, .stat b, .pv, .t1, .t2, .sn, .pn, .quote, .verdict, .alert-t, .q, .calc-row, .ribbon, .pk {
+  font-family: var(--tv-font-heading); }
+b { color: var(--tv-dark); }
+
+/* a theme without a logo or photo: the image and its frame disappear */
+img[src="data:,"], .title-logo:has(img[src="data:,"]), .logo:has(img[src="data:,"]), .bg:has(img[src="data:,"]) { display: none; }
+
+/* ---------- layouts ---------- */
+/* content slide (default) */
+.content { background: var(--tv-background); padding: 84px 120px 70px; display: flex; flex-direction: column; }
+.content::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 18px; background: var(--tv-accent); }
+.content::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 14px;
+  background: linear-gradient(90deg, var(--tv-primary), var(--tv-dark)); }
+.content > .hd { margin-bottom: 44px; }
+.content > :last-child { margin-bottom: auto; }
+.hd .kick { color: var(--tv-accent); font-size: 30px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; }
+.hd h1 { margin: 6px 0 0; font-size: 82px; font-weight: var(--tv-heading-weight); color: var(--tv-dark); line-height: 1.05; max-width: 1400px; }
+.logo { position: absolute; right: 110px; top: 72px; height: 96px; }
+.logo img { height: 100%; display: block; }
+.footer { position: absolute; left: 120px; bottom: 34px; font-size: 24px; color: var(--tv-muted); }
+
+/* title / end slide: dark, optional photo */
+.title { background: var(--tv-dark); color: #fff; }
+.title .bg { position: absolute; inset: 0; }
+.title .bg img { width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
+.title .shade { position: absolute; inset: 0; background: linear-gradient(90deg,
+  color-mix(in srgb, var(--tv-dark) 94%, transparent) 0%, color-mix(in srgb, var(--tv-dark) 76%, transparent) 55%,
+  color-mix(in srgb, var(--tv-primary) 35%, transparent) 100%); }
+.title-wrap { position: absolute; left: 140px; top: 0; bottom: 0; width: 1100px; display: flex; flex-direction: column; justify-content: center; }
+.title-logo { align-self: flex-start; margin-bottom: 56px; background: #fff; border-radius: 26px; padding: 22px 34px; }
+.title-logo img { height: 96px; display: block; }
+.title-logo.on-dark { background: none; padding: 0; }
+.t1 { font-size: 112px; font-weight: var(--tv-heading-weight); line-height: 1.02; }
+.t1 span { color: var(--tv-accent); display: block; }
+.t2 { font-size: 54px; margin-top: 34px; font-weight: 500; }
+.pill { margin-top: 50px; align-self: flex-start; background: #fff; color: var(--tv-dark); font-weight: 700; font-size: 32px; padding: 18px 34px; border-radius: 60px; }
+.contacts { margin-top: 44px; display: flex; flex-direction: column; gap: 18px; font-size: 50px; font-weight: 700; }
+.photo-circle { position: absolute; right: 110px; top: 250px; width: 580px; height: 580px; border-radius: 50%; overflow: hidden;
+  border: 14px solid #fff; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); }
+.photo-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+/* alert: one important rule on an accent background */
+.alert { background: var(--tv-accent); display: grid; place-items: center; }
+.alert-wrap { text-align: center; color: #fff; max-width: 1500px; }
+.alert-ico { width: 200px; height: 200px; margin: 0 auto 50px; border-radius: 50%; background: #fff; color: var(--tv-accent);
+  font: 700 150px/200px var(--tv-font-heading); }
+.alert-t { font-size: 100px; font-weight: 700; line-height: 1.1; }
+.alert-t u { text-decoration-thickness: 6px; text-underline-offset: 10px; }
+.alert-s { font-size: 48px; margin-top: 40px; font-weight: 600; }
+
+/* ---------- text ---------- */
+.lead { font-size: 46px; margin: 0 0 50px; max-width: 1500px; }
+.quote { margin: 34px 0 40px; font-size: 60px; font-weight: 600; color: var(--tv-dark); line-height: 1.15; max-width: 1600px; }
+.quote span { color: var(--tv-accent); }
+.note { margin-top: auto; font-size: 28px; color: var(--tv-muted); }
+.cap { font-size: 26px; color: var(--tv-muted); margin-top: 14px; }
+.chips { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; font-size: 38px; margin-top: 50px; }
+.chips > span { width: 100%; font-weight: 600; color: var(--tv-dark); }
+.chips b { background: var(--tv-primary); color: #fff; padding: 16px 30px; border-radius: 50px; font-weight: 700; }
+
+/* ---------- cards and grids ---------- */
+.grid-2, .grid-3, .grid-4 { display: grid; gap: 40px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.card { background: var(--tv-surface); border-radius: 28px; box-shadow: var(--tv-shadow); padding: 40px 44px; }
+.card h3 { margin: 0 0 14px; font-size: 50px; color: var(--tv-dark); font-weight: 600; line-height: 1.1; }
+.card p { margin: 0; font-size: 33px; line-height: 1.35; }
+.card.pale { background: var(--tv-pale); box-shadow: none; }
+.card.filled { background: var(--tv-primary); }
+.card.filled h3, .card.filled p, .card.filled b { color: #fff; }
+.card.outline { box-shadow: none; border: 5px solid var(--tv-primary); }
+.card.wide { display: flex; gap: 56px; align-items: center; }
+.num { color: var(--tv-accent); font-size: 76px; font-weight: 700; line-height: 1; margin-bottom: 14px; }
+.ico { font: 700 50px var(--tv-font-heading); color: #fff; background: var(--tv-primary); border-radius: 22px; width: 100px; height: 100px;
+  display: grid; place-items: center; margin-bottom: 26px; flex: none; }
+.label { font-size: 30px; font-weight: 600; letter-spacing: 3px; color: var(--tv-accent); text-transform: uppercase; margin-bottom: 20px; }
+
+/* chips that light up one by one: data-hl on each */
+.hl-item { --h: 0; background: var(--tv-surface); border-radius: 20px; padding: 24px 26px; font-size: 28px; line-height: 1.25; font-weight: 600;
+  color: var(--tv-dark); display: flex; gap: 18px; align-items: center; min-height: 120px;
+  box-shadow: 0 0 0 calc(var(--h) * 5px) var(--tv-accent), var(--tv-shadow); scale: calc(1 + var(--h) * .03); }
+.hl-item i { flex: none; width: 50px; height: 50px; border-radius: 50%; background: var(--tv-accent); color: #fff; font-style: normal;
+  display: grid; place-items: center; font-size: 24px; font-weight: 800; }
+
+/* ---------- numbers ---------- */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.stat { background: var(--tv-primary); color: #fff; border-radius: 28px; padding: 44px 48px; display: flex; align-items: center; gap: 30px;
+  font-size: 40px; font-weight: 600; line-height: 1.15; }
+.stat b { color: #fff; font-size: 120px; font-weight: 700; line-height: 1; }
+.stat small { display: block; font-size: 28px; font-weight: 400; opacity: .9; }
+.big { font-size: 120px; font-weight: 700; line-height: 1; color: var(--tv-accent); white-space: nowrap; }
+
+/* prices */
+.price { position: relative; padding: 30px 40px; }
+.price.rec { box-shadow: 0 0 0 6px var(--tv-accent), 0 20px 50px color-mix(in srgb, var(--tv-accent) 25%, transparent); }
+.ribbon { position: absolute; top: -26px; right: 36px; background: var(--tv-accent); color: #fff; font-size: 28px; font-weight: 600; padding: 8px 24px; border-radius: 30px; }
+.pk { font-size: 28px; font-weight: 600; color: var(--tv-muted); letter-spacing: 1px; text-transform: uppercase; }
+.pv { font-size: 84px; font-weight: 700; color: var(--tv-primary); line-height: 1.05; }
+.price ul, .card ul { margin: 18px 0 0; padding-left: 30px; font-size: 30px; line-height: 1.5; }
+.price li::marker, .card li::marker { color: var(--tv-accent); }
+.warn-box { margin-top: 20px; background: color-mix(in srgb, var(--tv-accent) 10%, #fff); border: 3px solid var(--tv-accent);
+  color: color-mix(in srgb, var(--tv-accent) 70%, #000); font-weight: 700; font-size: 26px; padding: 14px 18px; border-radius: 16px; }
+
+/* a sum: <div class="calc"><div class="calc-t">…</div><div class="calc-row">4 490 € <em>+</em> 420 € <em>=</em> <strong>4 910 €</strong></div></div> */
+.calc { margin-top: 32px; text-align: center; padding: 30px 44px; }
+.calc-t { font-size: 40px; font-weight: 600; color: var(--tv-dark); }
+.calc-row { margin-top: 14px; display: flex; justify-content: center; align-items: center; gap: 30px; font-size: 96px; font-weight: 700; color: var(--tv-primary); }
+.calc-row em { font-style: normal; color: var(--tv-muted); }
+.calc-row strong { color: #fff; background: var(--tv-accent); padding: 4px 36px; border-radius: 26px; }
+
+/* ---------- comparisons ---------- */
+.claim { align-self: flex-start; background: var(--tv-dark); color: #fff; font-size: 48px; font-weight: 500; padding: 18px 40px; border-radius: 24px; margin-bottom: 18px; }
+.claim b { color: var(--tv-accent); }
+.cmp { width: 100%; border-collapse: separate; border-spacing: 0 10px; font-size: 32px; }
+.cmp th { font-family: var(--tv-font-heading); font-size: 34px; font-weight: 600; color: var(--tv-muted); text-align: left; padding: 0 30px; }
+.cmp td { background: var(--tv-surface); padding: 13px 30px; }
+.cmp td:first-child { border-radius: 18px 0 0 18px; font-weight: 600; color: var(--tv-dark); width: 34%; }
+.cmp td:last-child { border-radius: 0 18px 18px 0; }
+.cmp td.bad { color: var(--tv-bad); }
+.cmp td.win { color: var(--tv-good); font-weight: 700; background: var(--tv-good-bg); }
+.cmp th.win { color: var(--tv-accent); }
+.verdict { align-self: flex-end; margin-top: 14px; background: var(--tv-accent); color: #fff; font-size: 44px; font-weight: 600; padding: 16px 40px;
+  border-radius: 22px; box-shadow: 0 16px 40px color-mix(in srgb, var(--tv-accent) 35%, transparent); }
+
+/* ---------- processes and lists ---------- */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+.stp { background: var(--tv-surface); border-radius: 26px; padding: 38px 42px; box-shadow: var(--tv-shadow); min-height: 300px; }
+.sn { width: 76px; height: 76px; border-radius: 50%; background: var(--tv-accent); color: #fff; font-size: 44px; font-weight: 700;
+  display: grid; place-items: center; margin-bottom: 20px; }
+.stp h3 { margin: 0 0 12px; font-size: 52px; color: var(--tv-dark); }
+.stp p { margin: 0; font-size: 33px; line-height: 1.35; }
+.rows { display: flex; flex-direction: column; gap: 32px; }
+.rows .card { display: flex; gap: 44px; align-items: center; padding: 40px 50px; }
+.rows .ico { margin: 0; }
+.tag { margin-top: 16px; display: inline-block; background: var(--tv-accent); color: #fff; font-weight: 700; font-size: 30px; padding: 12px 26px; border-radius: 40px; }
+.faq { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.qa { padding: 48px 52px; min-height: 280px; }
+.q { font-size: 52px; line-height: 1.15; font-weight: 600; color: var(--tv-dark); }
+.a { margin-top: 22px; font-size: 40px; font-weight: 600; color: var(--tv-good); }
+.recap { margin: 0; padding: 0; list-style: none; counter-reset: r; display: flex; flex-direction: column; gap: 24px; }
+.recap li { counter-increment: r; background: var(--tv-surface); border-radius: 22px; padding: 30px 44px; font-size: 46px; display: flex;
+  align-items: center; gap: 34px; box-shadow: var(--tv-shadow); }
+.recap li::before { content: counter(r); flex: none; width: 74px; height: 74px; border-radius: 50%; background: var(--tv-primary); color: #fff;
+  font: 700 42px/74px var(--tv-font-heading); text-align: center; }
+.recap li > span { display: block; }
+
+/* ---------- media ---------- */
+.shot { border-radius: 24px; overflow: hidden; box-shadow: var(--tv-shadow); background: var(--tv-surface); }
+.shot img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; flex: 1; }
+.code { background: #0f1b33; color: #d6e2ff; font: 500 28px/1.55 Menlo, monospace; white-space: pre; border-radius: 28px; padding: 30px 40px; }

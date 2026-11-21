@@ -1,0 +1,14 @@
+{
+  "name": "erida-training-video",
+  "description": "Плъгините на Erida за обучителни видеа.",
+  "owner": {
+    "name": "Erida"
+  },
+  "plugins": [
+    {
+      "name": "training-video",
+      "source": "./",
+      "description": "Обучително видео с глас по зададени материали или по кода на продукт."
+    }
+  ]
+}

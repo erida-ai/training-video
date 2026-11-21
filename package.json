@@ -1,0 +1,8 @@
+{
+  "name": "training-video",
+  "private": true,
+  "description": "Renderer dependencies of the training-video plugin (Claude Code installs them from the lockfile).",
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}

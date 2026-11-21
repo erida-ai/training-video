@@ -1,0 +1,11 @@
+{
+  "name": "English",
+  "native_name": "English",
+  "locale": "en-GB",
+  "voice": "Charon",
+  "pace": 0.062,
+  "fillers": "uh, um, er, erm, hmm, like",
+  "not_differences": "digits vs words (12 = twelve), currency read naturally (€310 = three hundred and ten euros), British vs American spelling",
+  "say_hints": "Spell out what a reader would stumble on: „QR“ → „Q R“, „€4,490“ → „four thousand four hundred and ninety euros“, product codes letter by letter.",
+  "greeting": "Hello, colleagues."
+}
